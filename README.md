@@ -51,7 +51,8 @@ To handle this sitution, we have 3 options like below;
 	* c.1- Create a Lambda Function called 'youtube_project_lambda_function_json_to_parquet' <br>
 	* c.2- Use [lambda_function.py](https://github.com/erensakarya/de-youtube-project/blob/main/json_to_jsonl_converters/lambda_function/lambda_function.py) python code. <br>
   	This code reads json files with aws-wrangler library, drops unnecessarry columns and renames remaining columns with pandas library and writes to s3 as .parquet files.
-	* Add yaml and aws- wrangler layers (pyyaml:1, AWSDataWrangler-Python38:4). <br>
+	* c.3- Run the function by invoking test event. The test event example can be found here [event_example.json](https://github.com/erensakarya/de-youtube-project/blob/main/json_to_jsonl_converters/lambda_function/event_example.json)
+  	* Add yaml and aws- wrangler layers (pyyaml:1, AWSDataWrangler-Python38:4). <br>
  	* You can use pyyaml layer for yaml lib and this arn "arn:aws:lambda:eu-west-1:336392948345:layer:AWSDataWrangler-Python38:4" for aws-wrangler lib.
    	aws-wrangler packages can be found in this url: https://aws-sdk-pandas.readthedocs.io/en/2.15.0/layers.html <br>
 	* Change RAM limit to 512 MB (default:128MB) and timoeout to 1 minutes (default 3 seconds). <br>
