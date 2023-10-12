@@ -1,5 +1,5 @@
 # upload raw_statistics_reference_data .json files to s3 with a single thread.
-aws s3 cp . s3://youtube-project/development/youtube/raw_statistics_reference_data/ --recursive --exclude "*" --include "*.json"
+aws s3 cp . s3://youtube-project/development/youtube/raw_statistics_reference_data_json/ --recursive --exclude "*" --include "*.json"
 
 # upload raw_statistics .csv files with region partion by using nohup for multiple uploading.
 nohup aws s3 cp CAvideos.csv s3://youtube-project/development/youtube/raw_statistics/region=ca/ &
