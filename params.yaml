@@ -1,2 +1,0 @@
-s3_cleansed_layer : "s3://youtube-project/development/youtube/raw_statistics_reference_data_parquet/"
-s3_write_mode : "overwrite"
