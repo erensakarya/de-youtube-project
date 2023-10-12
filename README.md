@@ -48,8 +48,8 @@ To handle this sitution, we have 3 options like below;
   	* 2.3- Run the job manually and rerun the crawler. (My data is fix meaning that new data is not coming on a hourly or daily basis or not a streaming data so no scheduler is 	needed but a scheduler could be added to to the job or a trigger could be added to a Glue Workflow if this job would be a part of it.
 
 * 3- Convert .json files to .parquet files with an AWS Lambda Function bu using python with aws-wrangler and pandas. <br>
-	3.1- Create a Lambda Function called 'youtube_project_lambda_function_json_to_parquet' <br>
-	3.2- Use [youtube_project_lambda_function_json_to_parquet.py](https://github.com/erensakarya/de-youtube-project/blob/main/youtube_project_lambda_function_json_to_parquet.py) python code. <br>
+	* 3.1- Create a Lambda Function called 'youtube_project_lambda_function_json_to_parquet' <br>
+	* 3.2- Use [youtube_project_lambda_function_json_to_parquet.py](https://github.com/erensakarya/de-youtube-project/blob/main/youtube_project_lambda_function_json_to_parquet.py) python code. <br>
   	This code reads json files with aws-wrangler library, drops unnecessarry columns and renames remaining columns with pandas library and writes to s3 as .parquet files.
 	* Add yaml and aws- wrangler layers (pyyaml:1, AWSDataWrangler-Python38:4). <br>
  	* You can use pyyaml layer for yaml lib and this arn "arn:aws:lambda:eu-west-1:336392948345:layer:AWSDataWrangler-Python38:4" for aws-wrangler lib.
