@@ -34,7 +34,7 @@ Create glue crawlers for each data so tables can be created in Glue Catalog like
 * youtube_project_raw_statistics_crawler for raw_statistics data and raw_statistics table with region partition.
 * youtube_project_raw_statistics_reference_data_crawler for raw_statistics_reference_data data and raw_statistics_reference_data table with no partition.
 
-Both tables will be created in the Glue Catalog but while 1st table can be queried successfully with AWS Athena (since background files are .csv), 2nd table can't be queried with Athena. Because the background .json datas are not .jsonl (new line delimited json files), instead they are old fashioned multiline .json files. Therefore, Athena can't handle these type .jsons.<br>
+Both tables will be created in the Glue Catalog but while 1st table can be queried successfully with AWS Athena (since background files are .csv), 2nd table can't be queried with Athena. Because the background .json datas are not .jsonl (new line delimited json files), instead they are old fashioned multiline .json files. Therefore, Athena can't handle these type .json files.<br>
 To handle this sitution, we have 3 options like below;
 * a- Convert .json files to .jsonl files. json to jsonl converter web-sites might be used for this purpose. https://www.convertjson.com/json-to-jsonlines.htm <br>
 	* a.1- Only the 3rd column is needed (the array column), first 2 columns are deleted. <br>
@@ -45,7 +45,7 @@ To handle this sitution, we have 3 options like below;
 	* b.1- Create a Glue Job called 'youtube_project_glue_job_json_to_parquet'. <br>
 	* b.2- Use [glue_job_json_to_jsonl_converter.py](https://github.com/erensakarya/de-youtube-project/blob/main/json_to_jsonl_converters/glue_job/glue_job_json_to_jsonl_converter.py) pyspark code.<br>
  	This code reads json files, drops unnecessarry columns, explodes array type column to multiple columns and writes to s3 as parquet files with desired number of files with 	sparkGroupBy parameter. <br>
-  	* b.3- Run the job manually and rerun the crawler. (My data is fix meaning that new data is not coming on a hourly or daily basis or not a streaming data so no scheduler is 	needed but a scheduler could be added to to the job or a trigger could be added to a Glue Workflow if this job would be a part of it.
+  	* b.3- Run the job manually and rerun the crawler (My data is fix meaning that new data is not coming on a hourly or daily basis or not a streaming data so no scheduler is 	needed but a scheduler could be added to to the job or a trigger could be added to a Glue Workflow if this job would be a part of it).
 
 * c- Convert .json files to .parquet files with an AWS Lambda Function bu using python with aws-wrangler and pandas. <br>
 	* c.1- Create a Lambda Function called 'youtube_project_lambda_function_json_to_parquet' <br>
