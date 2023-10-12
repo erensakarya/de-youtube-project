@@ -1,0 +1,39 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.1",
+      "eventSource": "aws:s3",
+      "awsRegion": "<aws_region>",
+      "eventTime": "2023-06-14T12:06:20.138Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "AWS:AIDAZXTRTAWLTFKOXUMO5"
+      },
+      "requestParameters": {
+        "sourceIPAddress": "<ip_address>"
+      },
+      "responseElements": {
+        "x-amz-request-id": "5QX3R38J50QN5ERA",
+        "x-amz-id-2": "7jYi+WBQC14hmgFZ5+YV6rSER6H+waDfJFfd1ia4yRy6ikSFs4Y/JWDwSbmQwxqN6iR8uW1R1hdhsLYPObQ2DyQF5GXOK1AS"
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "7a7d35d3-2455-40cf-986c-f7f12028cb63",
+        "bucket": {
+          "name": "youtube-project",
+          "ownerIdentity": {
+            "principalId": "A319273RK60N1H"
+          },
+          "arn": "arn:aws:s3:::youtube-project/development/youtube/raw_statistics_reference_data_json/DE_category_id.json"
+        },
+        "object": {
+          "key": "development/youtube/raw_statistics_reference_data_json/DE_category_id.json",
+          "size": 7,
+          "eTag": "5878f8b1762d8877efd59800b06ae9b4",
+          "versionId": "LV4LhycO21Xea61x3Z6DEffh9e2m0tOr",
+          "sequencer": "006489AD3C1BA7A511"
+        }
+      }
+    }
+  ]
+}
