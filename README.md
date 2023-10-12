@@ -49,7 +49,7 @@ To handle this sitution, we have 3 options like below;
 
 * c- Convert .json files to .parquet files with an AWS Lambda Function bu using python with aws-wrangler and pandas. <br>
 	* c.1- Create a Lambda Function called 'youtube_project_lambda_function_json_to_parquet' <br>
-	* c.2- Use [lambda_function_json_to_parquet.py](https://github.com/erensakarya/de-youtube-project/blob/main/json_to_jsonl_converters/lambda_function/lambda_function.py) python code. <br>
+	* c.2- Use [lambda_function.py](https://github.com/erensakarya/de-youtube-project/blob/main/json_to_jsonl_converters/lambda_function/lambda_function.py) python code. <br>
   	This code reads json files with aws-wrangler library, drops unnecessarry columns and renames remaining columns with pandas library and writes to s3 as .parquet files.
 	* Add yaml and aws- wrangler layers (pyyaml:1, AWSDataWrangler-Python38:4). <br>
  	* You can use pyyaml layer for yaml lib and this arn "arn:aws:lambda:eu-west-1:336392948345:layer:AWSDataWrangler-Python38:4" for aws-wrangler lib.
