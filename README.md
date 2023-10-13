@@ -28,7 +28,7 @@ Our dataset has 2 file types: .csv and .json.
 
 
 ## <ins>Project
-#### 1- Create a Glue Database named "youtube_project" and Glue Tables with Glue Crawlers to be able to run queries with AWS Athena.
+#### 1- Create a S3 bucket named "youtube-project" and create a Glue Database named "youtube_project" and Glue Tables with Glue Crawlers to be able to run queries with AWS Athena.
 Download the Youtube data and upload to "youtube-project" S3 bucket with commands which are in [upload_commands.sh](https://github.com/erensakarya/de-youtube-project/blob/main/upload_commands.sh) file.<br>
 Create glue crawlers for each data so tables can be created in Glue Catalog like below;
 * youtube_project_raw_statistics_crawler for raw_statistics data and raw_statistics table with region partition.
