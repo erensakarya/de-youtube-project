@@ -18,13 +18,9 @@ def read_csv_data(glueContext, bucket, mode, read_prefix):
         format_options={"withHeader": True},
         transformation_ctx="dyf")
     csv_df = csv_dyf.toDF()
-    csv_df.show(1, truncate=False)
     csv_df = csv_df.withColumn("file_name", input_file_name())
-    csv_df.show(1, truncate=False)
     csv_df = csv_df.withColumn("region", split(split(col("file_name"), '/').getItem(6), "=").getItem(1))
-    csv_df.show(1, truncate=False)
     csv_df = csv_df.drop("file_name")
-    csv_df.show(1, truncate=False)
     return csv_df
 
 
@@ -51,7 +47,7 @@ if __name__ == "__main__":
     spark.conf.set("spark.sql.sources.partitionOverwriteMode", "dynamic")
     job = Job(glueContext)
     job.init(args["JOB_NAME"], args)
-    bucket = "eren-deneme"
+    bucket = "youtube-project"
     mode = "development"
     read_prefix = "youtube/raw_statistics"
     write_prefix = "youtube/raw_statistics_cleaned"
