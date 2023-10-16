@@ -1,6 +1,3 @@
-import sys
-from awsglue.dynamicframe import DynamicFrame
-from awsglue.transforms import *
 from awsglue.context import GlueContext
 from awsglue.dynamicframe import DynamicFrame
 from awsglue.job import Job
@@ -8,6 +5,7 @@ from awsglue.transforms import *
 from awsglue.utils import getResolvedOptions
 from pyspark.context import SparkContext
 from pyspark.sql.functions import col, explode
+import sys
 
 
 def read_json_data(spark, bucket, mode, read_prefix):
