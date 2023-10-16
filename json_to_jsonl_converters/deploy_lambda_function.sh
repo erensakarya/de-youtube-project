@@ -16,9 +16,9 @@ if [ $? == 1 ]; then
     --function-name $FOLDER_NAME \
     --zip-file fileb://$FOLDER_NAME.zip)
 
-  echo "**** function code updated!!!! ------>"
+  echo "***** function updated!!! ------>"
   echo $UPDATE_RESULT
 else
-  echo "**** function created!!!! ------>"
+  echo "***** function created!!! ------>"
   echo $CREATE_RESULT
 fi
