@@ -1,11 +1,11 @@
-import sys
-from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.dynamicframe import DynamicFrame
+from awsglue.job import Job
 from awsglue.transforms import *
 from awsglue.utils import getResolvedOptions
-from awsglue.context import GlueContext
-from awsglue.job import Job
-from awsglue.dynamicframe import DynamicFrame
-from pyspark.sql.functions import col, split, input_file_name
+from pyspark.context import SparkContext
+from pyspark.sql.functions import col, input_file_name, split
+import sys
 
 
 def read_csv_data(glueContext, bucket, mode, read_prefix):
