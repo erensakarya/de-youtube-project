@@ -70,5 +70,9 @@ To handle this sitution, we have 3 options like below;
    INNER JOIN youtube_project.raw_statistics_reference_data_parquet AS rsrft
    ON rs.category_id = cast(rsrft.id as int);
    ```
-   
-
+#### 3- Preprocessing should be applied to raw_statistics data, since in a normal scenario we wouldn't want to keep all the raw.
+* A Glue job will be used for this purpose. <br>
+	* Create a Glue Job called 'youtube_project_glue_job_raw_statistics_cleaner'. <br>
+	* Use [glue_job_raw_statistics_cleaner.py](https://github.com/erensakarya/de-youtube-project/blob/main/glue_job_raw_statistics_cleaner/glue_job_raw_statistics_cleaner.py) pyspark code.<br>
+ 	This code reads .csv files, uses input_file_name method to get partition as a column and writes to s3 as parquet files with region partition. <br>
+  	* Run the job manually, create a new crawler for cleansed_raw_statistics data and run the crawler.
