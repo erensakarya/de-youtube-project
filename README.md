@@ -75,5 +75,5 @@ To handle this sitution, we have 3 options like below;
 	* Create a Glue Job called 'youtube_project_glue_job_raw_statistics_cleaner'. <br>
 	* Use [glue_job_raw_statistics_cleaner.py](https://github.com/erensakarya/de-youtube-project/blob/main/glue_job_raw_statistics_cleaner/glue_job_raw_statistics_cleaner.py) pyspark code.<br>
  	This code reads .csv files, uses input_file_name method to get partition as a column and writes to s3 as parquet files with region partition. <br>
-  	* Run the job manually, create a new crawler for cleansed_raw_statistics data and run the crawler.
+  	* Run the job manually, create a new crawler called "youtube_project_raw_statistics_cleansed_crawler" for cleansed_raw_statistics data and run the crawler.
   	* Glue job_bookmark can be enabled if this ETL job is going to run in schedule.
