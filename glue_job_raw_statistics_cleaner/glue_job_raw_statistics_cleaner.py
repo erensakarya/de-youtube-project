@@ -21,6 +21,7 @@ def read_csv_data(glueContext, bucket, mode, read_prefix):
     csv_df = csv_df.withColumn("file_name", input_file_name())
     csv_df = csv_df.withColumn("region", split(split(col("file_name"), '/').getItem(6), "=").getItem(1))
     csv_df = csv_df.drop("file_name")
+    csv_df = csv_df.dropna(how='any')
     return csv_df
 
 
