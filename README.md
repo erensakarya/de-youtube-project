@@ -79,7 +79,8 @@ To handle this sitution, we have 3 options like below;
   	* Glue job_bookmark can be enabled if this ETL job is going to run in schedule.
 
 #### 4- Create final daily analysis Glue job.
-	* Create a Glue Job called 'youtube_project_glue_job_final_daily_analysis'. <br>
+* A Glue job will be used for this purpose. <br>
+ 	* Create a Glue Job called 'youtube_project_glue_job_final_daily_analysis'. <br>
  	* Use [glue_job_final_daily_analysis.py](https://github.com/erensakarya/de-youtube-project/blob/main/glue_job_raw_statistics_cleaner/glue_job_raw_statistics_cleaner.py) pyspark code.<br>
 	This code reads raw_statistics_cleansed and raw_statistics_reference_data_parquet datas, inner joins them category_id and id and writes to s3 as parquet files with process_date partition daily <br>
  	* Create a daily schedule.
