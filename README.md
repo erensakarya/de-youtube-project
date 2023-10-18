@@ -77,3 +77,11 @@ To handle this sitution, we have 3 options like below;
  	This code reads .csv files, uses input_file_name method to get partition as a column, drop rows that have a null value and writes to s3 as parquet files with region partition. <br>
   	* Run the job manually, create a new crawler called "youtube_project_raw_statistics_cleansed_crawler" for cleansed_raw_statistics data and run the crawler.
   	* Glue job_bookmark can be enabled if this ETL job is going to run in schedule.
+
+#### 4- Create final daily analysis Glue job.
+	* Create a Glue Job called 'youtube_project_glue_job_final_daily_analysis'. <br>
+ 	* Use [glue_job_final_daily_analysis.py](https://github.com/erensakarya/de-youtube-project/blob/main/glue_job_raw_statistics_cleaner/glue_job_raw_statistics_cleaner.py) pyspark code.<br>
+	This code reads raw_statistics_cleansed and raw_statistics_reference_data_parquet datas, inner joins them category_id and id and writes to s3 as parquet files with process_date partition daily <br>
+ 	* Create a daily schedule.
+  	* Run the job manually, create a new crawler called "youtube_project_final_daily_analysis_crawler" for final_daily_analysis data and run the crawler.
+  	* Glue job_bookmark can be enabled if this ETL job is going to run in schedule.
