@@ -65,8 +65,7 @@ To handle this sitution, we have 3 options like below;
 
    SELECT * FROM youtube_project.raw_statistics_reference_data limit 5;
 
-   SELECT * FROM
-   youtube_project.raw_statistics AS rs
+   SELECT * FROM youtube_project.raw_statistics AS rs
    INNER JOIN youtube_project.raw_statistics_reference_data_parquet AS rsrft
    ON rs.category_id = cast(rsrft.id as int);
    ```
